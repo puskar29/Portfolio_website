@@ -1,0 +1,687 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap');
+@import "tailwindcss";
+
+/* local Roba font */
+@font-face {
+  font-family: 'Roba';
+  src: url('./assets/Roba-4n2zl.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === BASE BACKGROUND === */
+html, #root, body {
+  background-color: #020b0f; /* solid base so nothing shows white */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none; /* prevents bounce revealing underlying color */
+  min-height: 100%;
+  height: 100%;
+}
+
+/* keep radial gradient but fixed to viewport */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020b0f;
+  background: radial-gradient(circle at center, rgb(3, 6, 10) 100%);
+  background-attachment: fixed; /* prevents background repaint shifts while scrolling */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* very-low z-index solid layer covering viewport so any gaps remain dark */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+  background-color: #020b0f;
+  background: radial-gradient(circle at center, rgb(3, 6, 10) 100%);
+  pointer-events: none;
+}
+
+/* ensure bg-grid is absolute (scoped to wrapper) */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(0deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* headline / logo helper */
+.bar {
+  font-family: 'Roba', sans-serif;
+  letter-spacing: 3px;
+}
+
+/* === GRID LINES (GLOBAL) === */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === SHARED SHAPE STYLES === */
+.shape {
+  position: absolute;
+  opacity: 0.22;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: float 5s ease-in-out infinite alternate;
+}
+
+/* === SQUARES === */
+.square {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  border: 2px solid rgba(90, 255, 200, 0.28);
+  backdrop-filter: blur(3px);
+}
+
+/* === CIRCLES === */
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(150, 90, 255, 0.55);
+}
+
+/* === CURLY BRACES === */
+.brace {
+  font-size: 100px;
+  font-weight: 100;
+  color: rgba(32, 194, 137, 0.98);
+  text-shadow: 0 0 18px rgba(100, 255, 200, 0.45);
+}
+
+/* === FLOATING POSITIONS (examples) === */
+.s1  { top: 15%; left: 10%; }
+.s2  { top: 60%; left: 80%; }
+.s3  { top: 75%; left: 40%; }
+.s4  {
+  top: 80%;
+  left: 10%;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 6px;
+  border: 2px solid rgba(90, 255, 200, 0.447) !important;
+  background-color: rgba(90, 255, 200, 0.447) !important;
+  backdrop-filter: blur(3px);
+}
+
+.c1 { top: 22%; right: 20%; }
+.c2 { top: 50%; right: 12%; }
+.c3 { top: 72%; left: 22%; }
+.b1 { top: 25%; left: 5%; transform: translateX(-12px); }
+.b2 { bottom: 18%; right: 14%; }
+
+/* === FLOAT ANIMATION === */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1) rotate(-0.5deg);
+  }
+
+  50% {
+    transform: translateY(-9px) scale(1.03) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(-18px) scale(1.06) rotate(-1deg);
+  }
+}
+
+/* === MOUSE SCROLL INDICATOR === */
+.mouse-indicator {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 23px;
+  height: 37px;
+  border: 2px solid rgba(0, 255, 150, 0.5);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  animation: mouseJump 1.4s infinite ease-in-out;
+
+}
+
+.wheel {
+  width: 3px;
+  height: 6px;
+  background: rgba(0, 255, 150, 0.8);
+  border-radius: 4px;
+  animation: wheelJump 1.4s infinite ease-in-out;
+}
+
+
+@keyframes wheelJump {
+  0% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-10px);
+    /* jump up */
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-8px);
+    /* land */
+    opacity: 1;
+  }
+}
+
+@keyframes mouseJump {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-12px);
+    /* jump up */
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(0);
+    /* land */
+    opacity: 0.4;
+  }
+}
+
+/* Space Button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  overflow: hidden;
+  height: 3.5rem;
+  background-size: 300% 300%;
+  backdrop-filter: blur(1rem);
+  border-radius: 10px;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(to right, #86efac 10%, #67e8f9 45%, #c084fc 67%, #86efac 87%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
+
+strong {
+  z-index: 2;
+  font-family: 'Poppins' sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  text-shadow: 0 0 4px rgb(0, 0, 0);
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(0, 0, 1860 0.936);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(0, 0, 1860 0.936);
+}
+
+.btn:hover #container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:hover {
+  transform: scale(1.1)
+}
+
+.btn:active {
+  border: double 4px #FE53BB;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #FE53BB;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/* Original Button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  overflow: hidden;
+  height: 3.5rem;
+  background-size: 300% 300%;
+  backdrop-filter: blur(1rem);
+  border-radius: 10px;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(to right, #86efac 10%, #67e8f9 45%, #c084fc 67%, #86efac 87%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* REVERSED Button (btn2) */
+.btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  overflow: hidden;
+  height: 3.5rem;
+  background-size: 300% 300%;
+  backdrop-filter: blur(1rem);
+  border-radius: 10px;
+  transition: 0.5s;
+  animation: gradient_301_reverse 5s ease infinite;
+  border: double 2px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(to right, #86efac 10%, #67e8f9 45%, #c084fc 67%, #86efac 87%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+#container-stars,
+#container-stars2 {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
+
+.btn2 #container-stars2 {
+  z-index: -1;
+  background-color: transparent;
+}
+
+strong {
+  z-index: 2;
+  font-family: 'Poppins' sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  text-shadow: 0 0 4px rgb(0, 0, 0);
+}
+
+#glow,
+#glow2 {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(0, 0, 1860 0.936);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(0, 0, 1860 0.936);
+}
+
+.btn2 #glow2 .circle {
+  animation: pulse_3011_reverse 4s infinite;
+}
+
+.btn:hover #container-stars,
+.btn2:hover #container-stars2 {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:hover{
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 30px 5px rgba(134, 239, 172, 0.2),
+    0 0 50px 20px rgba(103, 232, 249, 0.15);
+  filter: blur(0.5px); /* Adds overall blur */
+  cursor: pointer;
+}
+
+.btn:active,
+.btn2:active {
+  border: double 4px #FE53BB;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle,
+.btn2:active .circle {
+  background: #FE53BB;
+}
+
+#stars,
+#stars2 {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after,
+#stars2::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars2::after {
+  animation: animStarRotate_reverse 90s linear infinite;
+}
+
+#stars::after,
+#stars2::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before,
+#stars2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars2::before {
+  animation: animStar_reverse 60s linear infinite;
+}
+
+#stars::before,
+#stars2::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+/* Original Animations */
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/* REVERSED Animations for btn2 */
+@keyframes animStar_reverse {
+  from {
+    transform: translateY(-135rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animStarRotate_reverse {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient_301_reverse {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse_3011_reverse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  70% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Home-scoped mouse indicator (absolute inside Home) */
+.mouse-indicator-home {
+  position: absolute; /* NOT fixed */
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 45px;
+  border: 2px solid rgba(0, 255, 150, 0.28);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2; /* keep below content (content should be z-10) */
+  animation: mouseFloat 2.2s ease-in-out infinite;
+}
+
+.mouse-indicator-home .wheel {
+  width: 4px;
+  height: 8px;
+  background: rgba(0, 255, 150, 0.95);
+  border-radius: 4px;
+  animation: wheelMove 1.4s infinite ease-in-out;
+}
+
+/* keyframes */
+@keyframes mouseFloat {
+  0%   { transform: translateX(-50%) translateY(0); }
+  50%  { transform: translateX(-50%) translateY(-6px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+@keyframes wheelMove {
+  0%   { transform: translateY(-6px); opacity: 0.7; }
+  50%  { transform: translateY(-8px); opacity: 0.5; }
+  100% { transform: translateY(-6px); opacity: 0.7; }
+}

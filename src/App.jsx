@@ -1,0 +1,23 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from "./Components/Home";
+import BackgroundGrid from "./Components/BackgroundGrid";
+import Navbar from "./Components/Navbar";
+import About from "./Components/About";
+
+
+const App = () => {
+  return (
+    <Router>
+      <div className="bg-[#020b0f] min-h-screen text-white">
+        <BackgroundGrid />
+        <Navbar />
+
+        <Home />
+        <About />
+      </div>
+    </Router>
+  );
+};
+
+export default App;
