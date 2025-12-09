@@ -29,7 +29,7 @@ const TechCard = ({ Icon, title, desc }) => (
 
 const About = () => {
   return (
-    <section className="w-full bg-black text-gray-300 min-h-screen pt-28 pb-20 px-6">
+    <section id="about" className="w-full bg-black text-gray-300 h-full pt-28 pb-20 px-6">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           {/* LEFT: Intro card */}

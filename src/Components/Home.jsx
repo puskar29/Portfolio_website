@@ -3,7 +3,7 @@ import { SiJavascript } from "react-icons/si";
 
 const Home = () => {
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-center overflow-hidden pt-13 px-6">
+    <section id="home" className="relative w-full min-h-screen flex flex-col justify-center items-center text-center overflow-hidden pt-13 px-6">
       {/* ---- LARGE GLOW BACKGROUND ---- */}
       <div
         className="absolute w-[1000px] h-[1000px] bg-gradient-to-br

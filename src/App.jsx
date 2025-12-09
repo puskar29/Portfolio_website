@@ -8,7 +8,6 @@ import About from "./Components/About";
 
 const App = () => {
   return (
-    <Router>
       <div className="bg-[#020b0f] min-h-screen text-white">
         <BackgroundGrid />
         <Navbar />
@@ -16,7 +15,6 @@ const App = () => {
         <Home />
         <About />
       </div>
-    </Router>
   );
 };
 

@@ -12,10 +12,10 @@ const Navbar = () => {
 
       {/* Links */}
       <ul className="hidden md:flex gap-10 text-gray-300 text-sm">
-        <Link to="/" className="hover:text-white cursor-pointer">Home</Link>
-        <Link to="/about" className="hover:text-white cursor-pointer">About</Link>
-        <li className="hover:text-white cursor-pointer">Projects</li>
-        <li className="hover:text-white cursor-pointer">Contact</li>
+        <a href="#home" className="hover:text-white cursor-pointer">Home</a>
+        <a href="#about" className="hover:text-white cursor-pointer">About</a>
+        <a href="/about" className="hover:text-white cursor-pointer">Projects</a>
+        <a href="/about" className="hover:text-white cursor-pointer">Contact</a>
       </ul>
     </nav>
   );

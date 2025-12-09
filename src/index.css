@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap');
 @import "tailwindcss";
 
+html{
+  scroll-behavior: smooth;
+}
+
 /* local Roba font */
 @font-face {
   font-family: 'Roba';
@@ -684,4 +688,40 @@ strong {
   0%   { transform: translateY(-6px); opacity: 0.7; }
   50%  { transform: translateY(-8px); opacity: 0.5; }
   100% { transform: translateY(-6px); opacity: 0.7; }
+}
+
+/* --- Scrolling behaviour improvements --- */
+
+/* ensure smooth scrolling and prevent overscroll bounce */
+html, body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none; /* prevents top/bottom bounce exposing background */
+}
+
+/* make the viewport snap to sections for a crisp page feel (adjustable) */
+main, body {
+  scroll-snap-type: y proximity; /* use 'mandatory' if you want stronger snapping */
+  scroll-padding-top: 72px; /* space for fixed navbar; adjust to your navbar height */
+}
+
+/* ensure each section is a valid snap point */
+section {
+  scroll-snap-align: start;
+  scroll-margin-top: 4rem; /* help anchors land below navbar */
+}
+
+/* disable snapping on small screens for natural touch scroll */
+@media (max-width: 768px) {
+  main, body { scroll-snap-type: none; }
+}
+
+/* subtle custom dark scrollbar to match theme */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
