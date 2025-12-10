@@ -1,9 +1,10 @@
 import { FaHtml5, FaCss3Alt, FaReact, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
+import {Sparkles} from 'lucide-react'
 
 const Home = () => {
   return (
-    <section id="home" className="relative w-full min-h-screen flex flex-col justify-center items-center text-center overflow-hidden pt-13 px-6">
+    <section id="home" className="relative w-full h-screen flex flex-col justify-center items-center text-center overflow-hidden pt-7 px-6 mb-16">
       {/* ---- LARGE GLOW BACKGROUND ---- */}
       <div
         className="absolute w-[1000px] h-[1000px] bg-gradient-to-br
@@ -14,8 +15,9 @@ const Home = () => {
       {/* ---- TEXT CONTENT ---- */}
       <div className="relative z-10 text-center max-w-4xl px-4">
         {/* Badge */}
-        <p className="text-gray-300 bg-white/5 px-5 py-2 rounded-full inline-block text-sm md:text-base mb-6 border border-white/10">
-          ✨ Available for opportunities
+        <p className="text-gray-300 bg-white/5 px-4 py-2 rounded-full inline-flex items-center gap-2 text-sm md:text-base mb-6 border border-white/10">
+          <Sparkles size={16} className="text-teal-300 " />
+          <span>Available for opportunities</span>
         </p>
 
         {/* Title - larger, custom font, keep name on same line */}

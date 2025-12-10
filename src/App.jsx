@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import BackgroundGrid from "./Components/BackgroundGrid";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About";
+import Projects from "./Components/Project";
 
 
 const App = () => {
@@ -11,9 +12,10 @@ const App = () => {
       <div className="bg-[#020b0f] min-h-screen text-white">
         <BackgroundGrid />
         <Navbar />
-
         <Home />
         <About />
+        <Projects />
+        <Contact />
       </div>
   );
 };
