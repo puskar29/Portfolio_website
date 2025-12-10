@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap');
 @import "tailwindcss";
-
 html{
   scroll-behavior: smooth;
 }
@@ -35,7 +35,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "Poppins", sans-serif;
 }
 
 /* very-low z-index solid layer covering viewport so any gaps remain dark */
@@ -235,6 +235,8 @@ body {
     linear-gradient(to right, #86efac 10%, #67e8f9 45%, #c084fc 67%, #86efac 87%);
   background-origin: border-box;
   background-clip: content-box, border-box;
+  font-family: 'Poppins' sans-serif !important;
+
 }
 
 #container-stars {
@@ -426,6 +428,7 @@ strong {
     linear-gradient(to right, #86efac 10%, #67e8f9 45%, #c084fc 67%, #86efac 87%);
   background-origin: border-box;
   background-clip: content-box, border-box;
+  font-family: 'Poppins' sans-serif;
 }
 
 #container-stars,
@@ -449,7 +452,7 @@ strong {
   z-index: 2;
   font-family: 'Poppins' sans-serif;
   font-size: 16px;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   color: #FFFFFF;
   text-shadow: 0 0 4px rgb(0, 0, 0);
 }

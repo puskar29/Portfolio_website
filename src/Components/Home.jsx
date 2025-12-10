@@ -61,7 +61,7 @@ const Home = () => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
-          <button type="button" className="btn ![width:15rem]">
+          <button type="button" className="btn ![width:13rem]">
             <strong>View My Projects</strong>
             <div id="container-stars">
               <div id="stars" />
@@ -73,7 +73,7 @@ const Home = () => {
             </div>
           </button>
 
-          <button type="button" className="btn2 cursor-pointer ![width:11rem]">
+          <button type="button" className="btn2 cursor-pointer ![width:10rem]">
             <strong>Get In Touch</strong>
             <div id="container-stars">
               <div id="stars" />

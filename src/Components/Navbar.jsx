@@ -15,7 +15,7 @@ const Navbar = () => {
         <a href="#home" className="hover:text-white cursor-pointer">Home</a>
         <a href="#about" className="hover:text-white cursor-pointer">About</a>
         <a href="#projects" className="hover:text-white cursor-pointer">Projects</a>
-        <a href="/about" className="hover:text-white cursor-pointer">Contact</a>
+        <a href="#contact" className="hover:text-white cursor-pointer">Contact</a>
       </ul>
     </nav>
   );

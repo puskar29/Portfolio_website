@@ -1,22 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Home from "./Components/Home";
-import BackgroundGrid from "./Components/BackgroundGrid";
 import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
 import About from "./Components/About";
-import Projects from "./Components/Project";
 
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
+import Projects from "./Components/Project";
+import BackgroundGrid from "./Components/BackgroundGrid";
 
 const App = () => {
   return (
-      <div className="bg-[#020b0f] min-h-screen text-white">
-        <BackgroundGrid />
-        <Navbar />
+    <div className="bg-[#020b0f] min-h-screen text-white">
+      <BackgroundGrid />
+      <Navbar />
         <Home />
         <About />
         <Projects />
         <Contact />
-      </div>
+
+      <Footer />
+    </div>
   );
 };
 
