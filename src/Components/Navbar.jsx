@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-     <nav className="w-full fixed top-0 left-0 z-20 px-10 py-5 flex justify-between items-center bg-transparent">
+     <nav className="w-full fixed  z-20 px-10 py-5 flex justify-between items-center bg-transparent">
       {/* Logo */}
       <h1 className="bar text-4xl font-semibold flex items-center gap-2">
         <span className="bg-gradient-to-r from-green-400 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</span>

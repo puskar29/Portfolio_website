@@ -6,12 +6,11 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import Projects from "./Components/Project";
-import BackgroundGrid from "./Components/BackgroundGrid";
+
 
 const App = () => {
   return (
     <div className="bg-[#020b0f] min-h-screen text-white">
-      <BackgroundGrid />
       <Navbar />
         <Home />
         <About />

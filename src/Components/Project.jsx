@@ -51,7 +51,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="w-full min-h-screen bg-black text-white px-6 md:px-20 py-5 relative"
+            className="w-full min-h-screen bg-black text-white px-6 md:px-20 py-5 pt-18 relative"
         >
             {/* Background Glow */}
             <div className="absolute inset-0 flex justify-center">
@@ -141,16 +141,8 @@ const Projects = () => {
 
             {/* View All Button */}
             <div className="flex justify-center mt-10">
-                <a href="https://github.com/puskar29?tab=repositories"  target="_blank" className="btn2 ![width:17rem] cursor-pointer">
+                <a href="https://github.com/puskar29?tab=repositories"  target="_blank" className="btn cursor-pointer">
                     <strong>View All Projects in Github</strong>
-                    <div id="container-stars">
-                        <div id="stars" />
-                    </div>
-
-                    <div id="glow">
-                        <div className="circle" />
-                        <div className="circle" />
-                    </div>
                 </a>
             </div>
         </section>

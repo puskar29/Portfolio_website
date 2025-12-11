@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full min-h-screen bg-[#0a0a0a] text-white relative py-8 px-4 sm:px-6 md:px-20 lg:px-32 mt-26"
+      className="w-full min-h-screen bg-[#0a0a0a] text-white relative py-8 px-4 sm:px-6 pt-18 md:px-20 lg:px-32 mt-26"
     >
       {/* Background Glow */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">

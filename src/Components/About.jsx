@@ -4,7 +4,7 @@ import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss } from 'react-ico
 import {User} from 'lucide-react'
 
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-white/6 border border-white/8 text-xs text-gray-200">
+  <span className="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-white/6 border z-9999 border-white/8 text-xs text-gray-200">
     {children}
   </span>
 );
@@ -30,7 +30,7 @@ const TechCard = ({ Icon, title, desc }) => (
 
 const About = () => {
   return (
-    <section id="about" className="w-full bg-black text-gray-300 min-h-full pt-1 pb-20 mt-16 px-6">
+    <section id="about" className="w-full bg-black text-gray-300 min-h-full pt-18 pb-20 mt-16 px-6">
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* centered badge + large hero heading */}
         <div className="mb-8 flex flex-col items-center text-center">
