@@ -1,8 +1,28 @@
 import { FaHtml5, FaCss3Alt, FaReact, FaLinkedin, FaGithub } from "react-icons/fa";
-import { SiJavascript } from "react-icons/si";
+import { SiJavascript, SiTailwindcss } from "react-icons/si";
 import {Sparkles} from 'lucide-react'
 
 const Home = () => {
+  // scroll to #projects when "View My Projects" is clicked
+  const handleViewProjects = () => {
+    const el = document.getElementById('projects');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.location.hash = '#projects';
+    }
+  };
+
+  // scroll to #contact when "Get In Touch" is clicked
+  const handleGetInTouch = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.location.hash = '#contact';
+    }
+  };
+
   return (
     <section id="home" className="relative w-full h-screen flex flex-col justify-center items-center text-center overflow-hidden pt-7 px-6 mb-16">
       {/* ---- LARGE GLOW BACKGROUND ---- */}
@@ -57,11 +77,14 @@ const Home = () => {
           <span className="px-4 py-2 bg-white/5 border border-white/10 rounded-full flex items-center gap-3 text-sm md:text-base">
             <FaReact className="text-xl md:text-2xl" /> React
           </span>
+          <span className="px-4 py-2 bg-white/5 border border-white/10 rounded-full flex items-center gap-3 text-sm md:text-base">
+            <SiTailwindcss className="text-xl md:text-2xl" /> Tailwindcss
+          </span>
         </div>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
-          <button type="button" className="btn ![width:13rem]">
+          <button type="button" className="btn ![width:13rem]" onClick={handleViewProjects}>
             <strong>View My Projects</strong>
             <div id="container-stars">
               <div id="stars" />
@@ -73,7 +96,7 @@ const Home = () => {
             </div>
           </button>
 
-          <button type="button" className="btn2 cursor-pointer ![width:10rem]">
+          <button type="button" className="btn2 cursor-pointer ![width:10rem]" onClick={handleGetInTouch}>
             <strong>Get In Touch</strong>
             <div id="container-stars">
               <div id="stars" />
