@@ -111,8 +111,8 @@ const Home = () => {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-6 mt-6 text-gray-400 text-2xl md:text-3xl">
-          <a href="#" className="hover:text-white"><FaGithub /></a>
-          <a href="#" className="hover:text-white"><FaLinkedin /></a>
+          <a href="https://github.com/puskar29" className="hover:text-white"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/puskar-thapa-magar-0a5b09365/" className="hover:text-white"><FaLinkedin /></a>
         </div>
       </div>
 

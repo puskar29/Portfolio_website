@@ -4,47 +4,47 @@ import { Workflow } from "lucide-react";
 
 const projects = [
     {
-        title: "Portfolio Website",
-        desc: "A personal portfolio website built with React and Tailwind CSS to showcase my projects and skills. Features smooth animations and modern design.",
-        tech: ["React", "Tailwind", "TypeScript"],
-        github: "#",
-        live: "#",
+        "title": "Fashion Mobile E-commerce",
+        "desc": "A mobile-first responsive fashion e-commerce website with modern UI, optimized for all devices. Features product showcases, shopping cart, and smooth navigation.",
+        "tech": ["HTML", "Tailwind CSS", "JavaScript", "Responsive Design"],
+        "github": "https://github.com/puskar29/ecommerce-website",
+        "live": "https://puskar29.github.io/ecommerce-website/"
     },
     {
-        title: "Todo Application",
-        desc: "A feature-rich todo app with local persistence, filtering, and a clean UI for productivity.",
+        "title": "WeatherNow - Live Weather App",
+        "desc": "A real-time weather application that provides accurate weather forecasts, temperature, humidity, and wind speed data using weather API integration.",
+        "tech": ["HTML", "CSS", "JavaScript", "Weather API"],
+        "github": "https://github.com/puskar29/my-weather-app",
+        "live": "https://puskar29.github.io/my-weather-app/"
+    },
+    {
+        title: "Currency Converter",
+        desc: "A simple and responsive currency converter built with HTML, CSS, and JavaScript, featuring clean UI and instant currency conversions.",
         tech: ["JavaScript", "HTML", "CSS"],
-        github: "#",
-        live: "#",
+        github: "https://github.com/puskar29/currency-converter",
+        live: "https://puskar29.github.io/currency-converter/",
     },
     {
-        title: "Weather Dashboard",
-        desc: "Real-time weather application using API integration to display accurate forecasts and conditions.",
-        tech: ["React", "API", "CSS"],
-        github: "#",
-        live: "#",
+        title: "Eclara E-commerce Website",
+        desc: "A modern and responsive e-commerce website built with HTML and Tailwind CSS, featuring clean layouts, smooth UI elements, and a fully responsive shopping experience.",
+        tech: ["HTML", "TailwindCSS"],
+        github: "https://github.com/puskar29/cara-ecommerce-website-responsive",
+        live: "https://puskar29.github.io/cara-ecommerce-website-responsive/",
     },
     {
-        title: "E-commerce Landing",
-        desc: "A responsive landing page for an e-commerce store with animations and modern UI.",
-        tech: ["HTML", "CSS", "JavaScript"],
-        github: "#",
-        live: "#",
+        "title": "Tic Tac Toe Game",
+        "desc": "An interactive Tic Tac Toe game built with vanilla JavaScript featuring player vs player mode, score tracking, and responsive design.",
+        "tech": ["HTML", "CSS", "JavaScript"],
+        "github": "https://github.com/puskar29/tic-tac-toe",
+        "live": "https://puskar29.github.io/tic-tac-toe/"
     },
     {
-        title: "Chat App UI",
-        desc: "A modern chat app UI with real-time message design and clean layout.",
-        tech: ["React", "Tailwind"],
-        github: "#",
-        live: "#",
-    },
-    {
-        title: "Task Manager",
-        desc: "A simple task management tool with sorting, filtering, and localStorage support.",
-        tech: ["React", "CSS"],
-        github: "#",
-        live: "#",
-    },
+        "title": "TaskFlow - To-Do List App",
+        "desc": "A productivity-focused to-do list application with task management features including add, edit, delete, mark complete, and local storage persistence.",
+        "tech": ["HTML", "CSS", "JavaScript"],
+        "github": "https://github.com/puskar29/to-do-list-app",
+        "live": "https://puskar29.github.io/to-do-list-app/"
+    }
 ];
 
 const Projects = () => {
@@ -141,7 +141,7 @@ const Projects = () => {
 
             {/* View All Button */}
             <div className="flex justify-center mt-10">
-                <a href="" className="btn2 ![width:17rem] cursor-pointer">
+                <a href="https://github.com/puskar29?tab=repositories"  target="_blank" className="btn2 ![width:17rem] cursor-pointer">
                     <strong>View All Projects in Github</strong>
                     <div id="container-stars">
                         <div id="stars" />
