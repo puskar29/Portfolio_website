@@ -177,9 +177,9 @@ const Home = () => {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-6 mt-6 text-gray-400 text-2xl md:text-3xl">
-          <a href="https://github.com/puskar29" className="hover:text-white"><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/puskar-thapa-magar-0a5b09365/" className="hover:text-white"><FaLinkedin /></a>
-          <a href="https://wa.me/qr/POOXU44U37S6I1" className="hover:text-white"><FaWhatsapp /></a>
+          <a href="https://github.com/puskar29" target="_blank" className="hover:text-white"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/puskar-thapa-magar-0a5b09365/" target="_blank" className="hover:text-white"><FaLinkedin /></a>
+          <a href="https://wa.me/qr/POOXU44U37S6I1" target="_blank" className="hover:text-white"><FaWhatsapp /></a>
         </div>
       </div>
 
