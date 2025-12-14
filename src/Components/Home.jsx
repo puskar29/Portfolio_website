@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative w-full h-screen flex flex-col justify-center items-center text-center overflow-hidden px-6 mb-16 pt-14 md:pt-7"
+      className="relative w-full h-screen flex flex-col justify-center items-center text-center overflow-hidden px-6 mb-16 pt-15 md:pt-7"
     >
       {/* mobile header (right-side menu button) - visible only on small screens */}
       <header className="fixed top-0 left-0 right-0 z-50 md:hidden">
@@ -64,7 +64,7 @@ const Home = () => {
           className={`mobile-menu-overlay md:hidden ${mobileOpen ? "open" : ""}`}
           aria-hidden={!mobileOpen}
         >
-          <ul className="flex flex-col divide-y divide-white/6 text-sm cursor-pointer">
+          <ul className="flex flex-col divide-y divide-white/6 text-sm cursor-pointer ">
             <li>
               <button
                 className="w-full text-left px-6 py-4 cursor-pointer hover:text-[#d7cccc] text-white flex items-center gap-3"
@@ -114,7 +114,7 @@ const Home = () => {
       {/* ---- TEXT CONTENT ---- */}
       <div className="relative z-10 text-center max-w-4xl px-4">
         {/* Badge */}
-        <p className="text-gray-300 bg-white/5 px-4 py-1 rounded-full inline-flex items-center gap-2 text-sm md:text-base mb-6 border border-white/10">
+        <p className="text-gray-300 bg-white/5 px-4  rounded-full inline-flex items-center gap-2 text-sm md:text-base mb-6 border border-white/10">
           <Sparkles size={16} className="text-teal-300 " />
           <span>Available for opportunities</span>
         </p>
