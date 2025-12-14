@@ -309,3 +309,32 @@ html, body, #root {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
 }
+
+/* --- Temporary animation clamp used by JS to restart animations on small-screen scroll-to-top --- */
+.refresh-animations * {
+  /* briefly disable all CSS animations/transitions so removing the class restarts them */
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+}
+
+/* Reduce home top padding on small screens so mouse indicator fits better */
+@media (max-width: 767px) {
+  #home {
+    padding-top: 0.75rem !important; /* less space so mouse stays visible */
+  }
+
+  /* ensure the "Available for opportunities" badge sits closer to the header */
+  #home p {
+    margin-top: 0.25rem; /* small tweak; adapt selector if needed */
+  }
+
+  /* slightly raise mouse indicator on short viewports (helps when content reflows) */
+  .mouse-indicator-home {
+    position: fixed !important; /* keep it fixed so it doesn't get pushed out of view */
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 56px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 9999 !important;
+  }
+}

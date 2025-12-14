@@ -19,18 +19,52 @@ const Home = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    // lock scroll when mobile menu open
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    // lock scroll / prevent horizontal overflow while mobile menu is open
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflowX = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflowX = "";
+    }
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflowX = "";
     };
   }, [mobileOpen]);
+
+  // --- NEW: small-screen "scroll to top" refresh behaviour ---
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.innerWidth > 767) return; // only on small screens
+
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      // when user scrolls back to very top from below, do a lightweight "refresh" of animations
+      if (y <= 2 && lastY > 8) {
+        // briefly disable animations (forces reflow/restart), then restore
+        document.body.classList.add("refresh-animations");
+        // force reflow
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        document.body.offsetHeight;
+        setTimeout(() => document.body.classList.remove("refresh-animations"), 80);
+      }
+      lastY = y;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleScrollTo = (id) => {
     setMobileOpen(false);
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    else window.location.hash = `#${id}`;
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.location.hash = `#${id}`;
+    }
   };
 
   const handleViewProjects = () => handleScrollTo("projects");
@@ -46,7 +80,7 @@ const Home = () => {
         <div className="flex items-center justify-between px-4 h-14 bg-[rgba(2,6,10,0.7)] backdrop-blur-sm border-b border-white/6">
           <div className="flex items-center gap-2">
             <h1 className="bar text-4xl font-semibold flex items-center gap-2">
-        <span className="bg-gradient-to-r from-green-400 pt-2 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</span>
+        <a href="#home" className="bg-gradient-to-r from-green-400 pt-2 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</a>
       </h1>
           </div>
 
