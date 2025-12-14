@@ -8,9 +8,12 @@ import {
   FaBars,
   FaTimes,
   FaWhatsapp,
+  FaHome,
+  FaUser,
 } from "react-icons/fa";
 import { SiJavascript, SiTailwindcss } from "react-icons/si";
-import { Sparkles } from "lucide-react";
+import { Contact, HomeIcon, Sparkles, User, Workflow } from "lucide-react";
+import { FaUpwork } from "react-icons/fa6";
 
 const Home = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -43,7 +46,7 @@ const Home = () => {
         <div className="flex items-center justify-between px-4 h-14 bg-[rgba(2,6,10,0.7)] backdrop-blur-sm border-b border-white/6">
           <div className="flex items-center gap-2">
             <h1 className="bar text-4xl font-semibold flex items-center gap-2">
-        <span className="bg-gradient-to-r from-green-400 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</span>
+        <span className="bg-gradient-to-r from-green-400 pt-2 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</span>
       </h1>
           </div>
 
@@ -61,42 +64,42 @@ const Home = () => {
           className={`mobile-menu-overlay md:hidden ${mobileOpen ? "open" : ""}`}
           aria-hidden={!mobileOpen}
         >
-          <ul className="flex flex-col divide-y divide-white/6 text-lg">
+          <ul className="flex flex-col divide-y divide-white/6 text-sm cursor-pointer">
             <li>
               <button
-                className="w-full text-left px-6 py-5 text-white flex items-center gap-3"
+                className="w-full text-left px-6 py-4 cursor-pointer hover:text-[#d7cccc] text-white flex items-center gap-3"
                 onClick={() => handleScrollTo("home")}
               >
-                Home
+              <HomeIcon size={13}/>  Home
               </button>
             </li>
             <li>
               <button
-                className="w-full text-left px-6 py-5 text-white flex items-center gap-3"
+                className="w-full text-left px-6 py-5 cursor-pointer hover:text-[#d7cccc] text-white flex items-center gap-3"
                 onClick={() => handleScrollTo("about")}
               >
-                About
+                <User size={13} />About
               </button>
             </li>
             <li>
               <button
-                className="w-full text-left px-6 py-5 text-white flex items-center gap-3"
+                className="w-full text-left px-6 py-5 cursor-pointer hover:text-[#d7cccc] text-white flex items-center gap-3"
                 onClick={() => handleScrollTo("projects")}
               >
-                Projects
+                <Workflow size={13}/>Projects
               </button>
             </li>
             <li>
               <button
-                className="w-full text-left px-6 py-5 text-white flex items-center gap-3"
+                className="w-full text-left px-6 py-5 cursor-pointer hover:text-[#d7cccc] text-white flex items-center gap-3"
                 onClick={() => handleScrollTo("contact")}
               >
-                Contact
+                <Contact size={13} />Contact
               </button>
             </li>
             <li className="pt-4 px-6 pb-6">
-              <a className="text-gray-300 block mb-3" href="https://github.com/puskar29" target="_blank" rel="noreferrer">GitHub</a>
-              <a className="text-gray-300 block" href="https://www.linkedin.com/in/puskar-thapa-magar-0a5b09365/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="text-gray-300 flex justify-center gap-2 items-center cursor-pointer hover:text-[#c5bebe] mb-3" href="https://github.com/puskar29" target="_blank" rel="noreferrer"><FaGithub size={13}/>GitHub</a>
+              <a className="text-gray-300 flex justify-center gap-2 items-center cursor-pointer hover:text-[#c5bebe]" href="https://www.linkedin.com/in/puskar-thapa-magar-0a5b09365/" target="_blank" rel="noreferrer"><FaLinkedin size={13} />LinkedIn</a>
             </li>
           </ul>
         </nav>
@@ -184,7 +187,7 @@ const Home = () => {
       </div>
 
       {/* Mouse Scroll Indicator */}
-      <div className="mouse-indicator-home" aria-hidden="true">
+      <div className="mouse-indicator-home " aria-hidden="true">
         <div className="wheel" />
       </div>
     </section>
