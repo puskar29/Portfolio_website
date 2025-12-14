@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Preferred sitemap (use the canonical domain)
+Sitemap: https://puskarthapamagar.com.np/sitemap.xml
