@@ -190,7 +190,7 @@ html, body, #root {
 
 /* push home content down so header doesn't overlap on small screens */
 @media (max-width: 767px) {
-  #home { padding-top: 10px; } /* same as header height */
+  #home { padding-top: 5px; } /* same as header height */
   .mobile-menu-overlay { top: 3.5rem; height: calc(100% - 3.5rem); }
   /* CTA buttons full width on very small screens handled by Tailwind classes in JSX */
 }
