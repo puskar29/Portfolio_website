@@ -102,7 +102,7 @@ body {
 .mouse-indicator-home {
   position: absolute; /* NOT fixed */
   left: 50%;
-  bottom: 1rem;
+  bottom: 3rem;
   transform: translateX(-50%);
   width: 30px;
   height: 45px;

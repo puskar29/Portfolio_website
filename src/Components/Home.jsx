@@ -46,7 +46,7 @@ const Home = () => {
         <div className="flex items-center justify-between px-4 h-14 bg-[rgba(2,6,10,0.7)] backdrop-blur-sm border-b border-white/6">
           <div className="flex items-center gap-2">
             <h1 className="bar text-4xl font-semibold flex items-center gap-2">
-        <span className="bg-gradient-to-r from-green-400 pt-2 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</span>
+        <a href="#home" className="bg-gradient-to-r from-green-400 pt-2 via-cyan-300 to-purple-700 bg-clip-text text-transparent">Kanung</a>
       </h1>
           </div>
 
