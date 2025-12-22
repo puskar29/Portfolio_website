@@ -10,6 +10,7 @@ import {
   FaWhatsapp,
   FaHome,
   FaUser,
+  FaFacebook,
 } from "react-icons/fa";
 import { SiJavascript, SiTailwindcss } from "react-icons/si";
 import { Contact, HomeIcon, Sparkles, User, Workflow } from "lucide-react";
@@ -183,6 +184,7 @@ const Home = () => {
           <a href="https://github.com/puskar29" target="_blank" className="hover:text-white"><FaGithub /></a>
           <a href="https://www.linkedin.com/in/puskar-thapa-magar-0a5b09365/" target="_blank" className="hover:text-white"><FaLinkedin /></a>
           <a href="https://wa.me/qr/POOXU44U37S6I1" target="_blank" className="hover:text-white"><FaWhatsapp /></a>
+          <a href="https://www.facebook.com/puskar.magar.453520" target="_blank" className="hover:text-white"><FaFacebook/></a>
         </div>
       </div>
 
