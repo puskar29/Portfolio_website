@@ -309,3 +309,98 @@ html, body, #root {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
 }
+
+/* ---------- Animations (only font/visual motion, no layout changes) ---------- */
+
+/* Page load fade wrapper */
+.page-preload .page-fade,
+.page-fade {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+body.page-loaded .page-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav stagger appearance (initial states) */
+nav a, .site-nav a, .navbar a {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.995);
+}
+nav a.nav-appear, .site-nav a.nav-appear, .navbar a.nav-appear {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hero reveal (slide-up + fade) and profile scale on load */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Profile image subtle scale */
+.profile-img {
+  transition: transform 520ms cubic-bezier(.2,.9,.2,1);
+  transform-origin: center;
+}
+body.page-loaded .profile-img {
+  transform: scale(1);
+}
+.profile-img:not(.loaded) {
+  transform: scale(0.98);
+}
+
+/* Cards / projects gentle scale on reveal */
+.card, .project-item, .tech-card {
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 420ms ease;
+  transform-origin: center;
+  opacity: 0;
+  transform: translateY(8px) scale(0.995);
+}
+.card.in-view, .project-item.in-view, .tech-card.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Parallax helper (elements with .parallax moved via JS) */
+.parallax {
+  will-change: transform;
+  transition: transform 120ms linear;
+}
+
+/* Mobile menu slide (hooks only) */
+.mobile-menu {
+  transform: translateY(-6px);
+  opacity: 0;
+  transition: transform 400ms cubic-bezier(.2,.9,.2,1), opacity 400ms ease;
+}
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hover smoothing for nav items (no color changes) */
+nav a, .site-nav a, .navbar a {
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease;
+}
+nav a:hover, .site-nav a:hover, .navbar a:hover {
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .reveal, .card, .project-item, .tech-card, nav a, .profile-img { opacity: 1 !important; transform: none !important; }
+}
+
+/* End animation block */
